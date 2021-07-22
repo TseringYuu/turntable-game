@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    position: fixed;
+    background: rgba(28, 32, 38, 1);
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.outer-circle,
+.arrow-container {
+    position: absolute;
+    left: -25vw;
+    top: calc(50vh - 50vw);
+    width: 100vw;
+    height: 100vw;
+    border-radius: 50%;
+    /* background: rgba(255, 255, 255, .1); */
+    background: radial-gradient(
+        rgba(34, 37, 49, 1),
+        rgba(19, 20, 21, 1),
+        rgba(34, 37, 49, 1),
+        rgba(19, 20, 21, 1),
+        rgba(34, 37, 49, 1)
+    );
+    transition: transform 4s cubic-bezier(0.31, 0.01, 0, 0.98);
+    box-shadow: inset 0 0 24px rgba(0, 116, 255, 1);
+}
+
+.inner-circle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vw;
+    height: 50vw;
+    border-radius: 50%;
+    background: rgba(28, 32, 38, 1);
+    box-shadow: 0 0 24px rgba(0, 116, 255, 1);
+}
+
+.arrow-container {
+    z-index: 999;
+    background: rgba(0, 0, 0, 0);
+}
+
+.arrow-container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 30%;
+    cursor: pointer;
+}
+
+.arrow-container img:active {
+    top: calc(50% + 3px);
+}
+
+.split-line {
+    width: 1px;
+    height: 25vw;
+    position: absolute;
+    top: 0;
+    left: 50vw;
+    transform-origin: center 50vw;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 116, 255, .5),
+        rgba(168, 207, 255, .5),
+        rgba(0, 116, 255, .5)
+    );
+    transition: all .5s ease;
+}
+
+.split-line.active-before {
+    background: rgba(168, 207, 255, 1);
+    box-shadow: 1px 0 20px #fff;
+}
+
+.split-line.active-after {
+    background: rgba(168, 207, 255, 1);
+    box-shadow: -1px 0 20px #fff;
+}
+
+.name {
+    width: 20px;
+    height: 25vw;
+    position: absolute;
+    top: 0;
+    left: calc(50vw - 10px);
+    transform-origin: center 50vw;
+}
+
+.name-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #aaa;
+    font-size: 40px;
+    transition: color .5s ease;
+}
+
+.name-box.active {
+    color: #fff;
+}
+
+.name-box.visited {
+    color: #880;
+}
+
+.pointer {
+    width: 25vw;
+    height: 20px;
+    position: absolute;
+    top: 50vh;
+    left: 25vw;
+    transform: translateY(-50%);
+    z-index: 99;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.pointer>polyline {
+    fill: rgba(0, 116, 255, 1);
+}
